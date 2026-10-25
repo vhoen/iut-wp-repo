@@ -1,0 +1,10 @@
+
+# Release archives (local)
+dist/
+
+# dev-workflow-mcp (non commite)
+.coverage/
+.dev-workflow/
+.grok/
+.jira_attachments/
+.jira_solutions/

@@ -25,21 +25,24 @@ Both use the same PHP renderer and front-end assets. The static demo in `../mous
 Optional attributes (defaults match the static demo):
 
 ```text
-[mouse_trail duration="850" width="36"]
+[mouse_trail duration="850" width="36" color="#ffffff"]
 …
 [/mouse_trail]
 ```
 
-| Attribute  | Default | Description              |
-|------------|---------|--------------------------|
-| `duration` | `850`   | Trail fade time in ms    |
-| `width`    | `36`    | Max stroke width in px   |
+| Attribute  | Default     | Description                          |
+|------------|-------------|--------------------------------------|
+| `duration` | `850`       | Trail fade time in ms                |
+| `width`    | `36`        | Max stroke width in px               |
+| `color`    | `#ffffff`   | Stroke source color (`#RGB` / `#RRGGBB`) |
+
+With `mix-blend-mode: difference`, the visible trail is inverted against the backdrop (e.g. white source → dark trail on light content).
 
 ### Gutenberg block
 
 1. Edit a page → **Add block** → **Mouse Trail**.
 2. Add any blocks inside the zone.
-3. In the sidebar, adjust **Trail duration** and **Trail width** if needed.
+3. In the sidebar, adjust **Trail duration**, **Trail width**, and **Trail color** if needed.
 
 ## Notes
 

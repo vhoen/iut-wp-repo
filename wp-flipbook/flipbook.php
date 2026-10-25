@@ -2,10 +2,10 @@
 /**
  * Plugin Name:       WP Flipbook
  * Description:       Configurable Turn.js flipbook with shortcode and Gutenberg block.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Author:            Test IUT
+ * Author:            vhoen
  * Text Domain:       wp-flipbook
  * License:           GPL-2.0-or-later
  */
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WP_FLIPBOOK_VERSION', '1.0.0' );
+define( 'WP_FLIPBOOK_VERSION', '1.0.1' );
 define( 'WP_FLIPBOOK_FILE', __FILE__ );
 define( 'WP_FLIPBOOK_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_FLIPBOOK_URL', plugin_dir_url( __FILE__ ) );

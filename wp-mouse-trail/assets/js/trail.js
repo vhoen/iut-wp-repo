@@ -3,12 +3,14 @@
 
   var DEFAULT_DURATION = 850;
   var DEFAULT_WIDTH = 36;
+  var DEFAULT_COLOR = "#ffffff";
+  var COLOR_PATTERN = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
   /**
    * Initialize one trail zone (scoped canvas + pointer listeners).
    *
    * Role:
-   * Draws a fading white stroke over the zone using local coordinates.
+   * Draws a fading stroke over the zone using local coordinates.
    *
    * Inputs:
    * - zone: Root .wp-mouse-trail element containing a canvas.
@@ -29,12 +31,16 @@
 
     var trailDuration = parseInt(zone.getAttribute("data-duration"), 10);
     var trailWidth = parseInt(zone.getAttribute("data-width"), 10);
+    var trailColor = zone.getAttribute("data-color") || DEFAULT_COLOR;
 
     if (!trailDuration || trailDuration < 1) {
       trailDuration = DEFAULT_DURATION;
     }
     if (!trailWidth || trailWidth < 1) {
       trailWidth = DEFAULT_WIDTH;
+    }
+    if (!COLOR_PATTERN.test(trailColor)) {
+      trailColor = DEFAULT_COLOR;
     }
 
     var animationFrame = 0;
@@ -91,9 +97,9 @@
         context.lineTo(point.x, point.y);
         context.globalAlpha = Math.pow(Math.max(0, 1 - age), 2);
         context.lineWidth = Math.max(2, trailWidth * (1 - age));
-        // White source color for black result over light content
-        // while preserving the canvas difference blend mode.
-        context.strokeStyle = "#ffffff";
+        // Source stroke color; with mix-blend-mode: difference the
+        // visible result is inverted against the backdrop.
+        context.strokeStyle = trailColor;
         context.stroke();
       }
 

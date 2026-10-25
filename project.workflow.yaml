@@ -1,0 +1,70 @@
+# Genere par dev-workflow-mcp — renseigner gitlab.project_id avant /jira-done
+project_name: iut-wp-repo
+repo_path: "/home/vhoen/src/perso/iut-wp-repo"
+default_target_branch: develop
+branch_name_pattern: "feature/{jira_key}-{slug}"
+max_branch_name_length: 50
+require_solution_approval_if_multiple: true
+
+# Langage principal du projet (utilisé par detect_language + /jira-exec pour adapter tests/lint/docs).
+# Si absent, detect_language() devine automatiquement via go.mod / composer.json / package.json / angular.json etc.
+# Valeurs supportées : go | php | typescript | javascript | python
+language: go
+
+# GitLab : obligatoire par repo pour le mode multi-projets (token/url restent dans .env MCP)
+gitlab:
+  project_id: ""
+  # path: "digital-platform/sample-project"
+  # base_url: "https://git.pv-cp.net"
+
+# Tests : gate obligatoire avant /jira-done → Finaliser
+tests:
+  min_coverage_percent: 90
+  unit_test_command: "make test"
+  coverage_command: "go test -count=1 -coverprofile=.coverage/coverage.out -coverpkg=./manager,./action/vc,./model ./manager ./action/vc ./model"
+  coverage_report_path: ".coverage/coverage.html"
+
+# Lint (golangci-lint pour Go, Biome pour TS — voir project.workflow.typescript.yaml.example)
+# Skills : /golang-lint (pack go), /typescript-lint (pack typescript)
+lint:
+  command: "golangci-lint run ./..."
+  config_path: ".golangci.yml"
+  packages: "./..."
+
+# Gates qualite — pilotage par repo (/jira-exec, /jira-done)
+# Modes : required (bloquant) | optional (execute, FAIL non bloquant) | off (ignore)
+# Astuce YAML : preferer "off" entre guillemets (sinon YAML 1.1 peut lire off comme false — gere par le MCP)
+#
+# Execution (independant des modes ci-dessus) :
+#   - Defaut /jira-exec et /jira-done : scripts run-quality-gate.* (economie tokens MCP)
+#   - Opt-in : /jira-exec FUT-123 with-gates ou /jira-done with-gates → outils MCP lint/race/vuln
+quality:
+  gates:
+    lint: required
+    race: optional       # Go uniquement
+    vuln: optional       # Go uniquement ; /jira-done
+    coverage: required
+    unit_tests: required
+  race_command: "go test -race -count=1"
+  vuln_command: "govulncheck ./..."
+
+jira:
+  project_key: "FUT"            # RUN | FUT | ... — par repo (fallback: JIRA_DEFAULT_PROJECT_KEY .env MCP)
+  in_progress_status_name: "In Progress"
+  to_be_tested_status_name: "To Be Tested"
+
+commit:
+  message_pattern: "[{jira_key}] {message}"
+
+# Caveman — compression opt-in des reponses agent (rule caveman-output-lite.mdc)
+# PR1 : enabled false par defaut. Activer par repo si pilote token savings.
+caveman:
+  enabled: false
+  level: lite                 # lite | full | ultra
+  mcp_shrink: false           # proxy caveman-shrink sur MCP (PR4)
+  trace: false                # JSONL .dev-workflow/ai-trace.jsonl (PR5)
+  trace_level: info           # info | trace | debug
+  always_on: false            # reserved — activation via yaml + contexte agent
+  exempt_skills:
+    - jira-done
+    - jira-review

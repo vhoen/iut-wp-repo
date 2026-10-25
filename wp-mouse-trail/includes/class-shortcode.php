@@ -34,7 +34,7 @@ class WP_Mouse_Trail_Shortcode {
 	 * Shortcode callback.
 	 *
 	 * Role:
-	 * Parses duration/width attributes and wraps enclosed content in a trail zone.
+	 * Parses duration/width/color attributes and wraps enclosed content in a trail zone.
 	 *
 	 * Inputs:
 	 * - $atts: Shortcode attributes.
@@ -48,6 +48,7 @@ class WP_Mouse_Trail_Shortcode {
 			array(
 				'duration' => WP_Mouse_Trail_Render::DEFAULT_DURATION,
 				'width'    => WP_Mouse_Trail_Render::DEFAULT_WIDTH,
+				'color'    => WP_Mouse_Trail_Render::DEFAULT_COLOR,
 			),
 			$atts,
 			'mouse_trail'
@@ -60,6 +61,7 @@ class WP_Mouse_Trail_Shortcode {
 			array(
 				'duration' => (int) $atts['duration'],
 				'width'    => (int) $atts['width'],
+				'color'    => $atts['color'],
 			)
 		);
 	}

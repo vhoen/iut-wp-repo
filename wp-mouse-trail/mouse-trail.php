@@ -2,10 +2,10 @@
 /**
  * Plugin Name:       WP Mouse Trail
  * Description:       Mouse trail canvas effect applied to a content zone via shortcode or Gutenberg block.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Author:            Test IUT
+ * Author:            vhoen
  * Text Domain:       wp-mouse-trail
  * License:           GPL-2.0-or-later
  */
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WP_MOUSE_TRAIL_VERSION', '1.0.0' );
+define( 'WP_MOUSE_TRAIL_VERSION', '1.0.1' );
 define( 'WP_MOUSE_TRAIL_FILE', __FILE__ );
 define( 'WP_MOUSE_TRAIL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_MOUSE_TRAIL_URL', plugin_dir_url( __FILE__ ) );

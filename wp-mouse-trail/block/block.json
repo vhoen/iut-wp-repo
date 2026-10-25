@@ -16,6 +16,10 @@
     "width": {
       "type": "number",
       "default": 36
+    },
+    "color": {
+      "type": "string",
+      "default": "#ffffff"
     }
   },
   "supports": {
