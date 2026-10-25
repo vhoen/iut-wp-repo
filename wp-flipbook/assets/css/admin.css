@@ -1,0 +1,60 @@
+.wp-flipbook-admin .wp-flipbook-covers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.wp-flipbook-admin .wp-flipbook-image-field {
+  min-width: 160px;
+  max-width: 220px;
+  padding: 0.75rem;
+  border: 1px solid #c3c4c7;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.wp-flipbook-admin .wp-flipbook-image-preview {
+  min-height: 80px;
+  margin: 0.5rem 0;
+  background: #f6f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wp-flipbook-admin .wp-flipbook-image-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wp-flipbook-admin .wp-flipbook-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wp-flipbook-admin .wp-flipbook-page-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border: 1px solid #c3c4c7;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.wp-flipbook-admin .wp-flipbook-page-handle {
+  cursor: move;
+  margin-top: 0.35rem;
+  color: #787c82;
+}
+
+.wp-flipbook-admin .wp-flipbook-page-fields {
+  flex: 1;
+}
+
+.wp-flipbook-admin .wp-flipbook-page-image {
+  max-width: 180px;
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wp-mouse-trail/zone",
+  "title": "Mouse Trail",
+  "category": "widgets",
+  "icon": "admin-customizer",
+  "description": "Wrap content in a mouse trail canvas effect zone.",
+  "keywords": ["mouse", "trail", "canvas", "hover"],
+  "textdomain": "wp-mouse-trail",
+  "attributes": {
+    "duration": {
+      "type": "number",
+      "default": 850
+    },
+    "width": {
+      "type": "number",
+      "default": 36
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "wp-mouse-trail-block-editor"
+}

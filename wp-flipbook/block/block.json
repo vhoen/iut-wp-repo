@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wp-flipbook/book",
+  "title": "Flipbook",
+  "category": "widgets",
+  "icon": "book-alt",
+  "description": "Display a configurable Turn.js flipbook.",
+  "keywords": ["flipbook", "book", "turn"],
+  "textdomain": "wp-flipbook",
+  "attributes": {
+    "flipbookId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "wp-flipbook-block-editor"
+}

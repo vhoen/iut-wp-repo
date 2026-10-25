@@ -1,0 +1,71 @@
+.wp-flipbook {
+  margin: 1.5rem auto;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+}
+
+.wp-flipbook .flipbook {
+  margin: 0 auto;
+}
+
+.wp-flipbook .turn-page {
+  background-color: #fffaf3;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.wp-flipbook .hard {
+  background-color: #1a3a4a;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.wp-flipbook .cover-inside,
+.wp-flipbook .cover-back-inside {
+  background-color: #f4efe4;
+}
+
+.wp-flipbook .sheet {
+  background-color: #fffaf3;
+}
+
+.wp-flipbook .sheet .content {
+  padding: 18px 14px 28px;
+  text-align: center;
+}
+
+.wp-flipbook .sheet img {
+  display: block;
+  width: 150px;
+  height: 100px;
+  margin: 0 auto 10px;
+  border: 0;
+  object-fit: contain;
+}
+
+.wp-flipbook .sheet h2 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #3d352c;
+}
+
+.wp-flipbook .sheet p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #6a5f52;
+}
+
+.wp-flipbook .sheet .folio {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #9a8f80;
+}
+
+.wp-flipbook-admin-notice {
+  color: #b32d2e;
+  font-size: 0.9rem;
+}
